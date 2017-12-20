@@ -10,7 +10,7 @@ ReactDOM.render(
   <BrowserRouter>
     <div>
       <Switch>
-        <Route path="/planet/:name" component={PlanetShow} />
+        <Route path="/planets/:index" component={PlanetShow} />
         <Route path="/" component={App} />
       </Switch>
     </div>

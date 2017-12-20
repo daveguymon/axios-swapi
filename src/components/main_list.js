@@ -15,7 +15,7 @@ export default class MainList extends Component {
   componentDidMount() {
     axios.get('https://swapi.co/api/planets/')
     .then((response) => {
-      console.log(response.data.results)
+      console.log("Response data: ",response.data)
       this.setState({ planets: response.data.results })
     })
     .catch(error => console.log(error));
@@ -24,7 +24,7 @@ export default class MainList extends Component {
   renderPlanetList() {
     return this.state.planets.map((planet,index) => {
       return <div key={index}>
-          <Link to={`/planets/${planet.name}`}>
+          <Link to={`/planets/${index + 2}`}>
             <Planet planet={planet} />
           </Link>
         </div>
@@ -32,7 +32,6 @@ export default class MainList extends Component {
   }
 
   render(){
-    console.log(this.state.planets)
     return (
       <div className="main_list_container">
           {this.renderPlanetList()}
